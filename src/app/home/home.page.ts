@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,7 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  public deudaTotal = 16780;
 
-  constructor() {}
+  constructor(public router: Router) {}
+
+  getServices() {
+    this.router.navigateByUrl('list');
+  }
+
+  metodo() {
+    this.router.navigateByUrl('metodo');
+  }
 
 }

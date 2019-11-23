@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Servicio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <img src="/assets/netflix.jpeg" alt="" />
+    <ion-card-header>
+      <ion-card-subtitle>Peliculas y entretenimiento</ion-card-subtitle>
+      <ion-card-title>Netflix</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div class="aligning">
+        <ion-note color="danger">Tu deuda actual es de: {{concepto}} MXN</ion-note>
+      </div>
+
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Pagar ahora</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Método de pago</ion-label>
+        <ion-select cancelText="Cancelar" okText="Escoger" [(ngModel)]="metodoEscogido" >
+          <ion-select-option *ngFor="let metodo of metodos" value="{{metodo.nombre}}">{{metodo.nombre}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Concepto</ion-label>
+        <ion-note color="danger">{{concepto}} MXN </ion-note>
+      </ion-item>
+    </ion-card-content>
+    <ion-row class="cardfooter">
+        <ion-col>
+              <ion-button expand="full" color="success" [routerDirection]="'root'" [routerLink]="['/home']">Pagar</ion-button>
+        </ion-col>
+      </ion-row>
+  </ion-card>
+</ion-content>

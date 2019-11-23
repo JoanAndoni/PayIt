@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,32 +9,52 @@ import { Component, OnInit } from '@angular/core';
 export class ListPage implements OnInit {
   private selectedItem: any;
   private icons = [
-    'flask',
-    'wifi',
-    'beer',
-    'football',
-    'basketball',
-    'paper-plane',
-    'american-football',
-    'boat',
-    'bluetooth',
-    'build'
+    'videocam',
+    'outlet',
+    'musical-note',
+    'card'
   ];
+  public deudas = [
+    0,
+    150,
+    78,
+    14320
+  ];
+  public total = 0;
   public items: Array<{ title: string; note: string; icon: string }> = [];
-  constructor() {
-    for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
-    }
+  constructor(public router: Router) {
+    this.deudas.forEach(element => {
+      this.total = this.total + element;
+    });
+
+    this.items = [
+      {
+        title: 'Netflix',
+        note: this.deudas[0] + ' MXN',
+        icon: this.icons[0]
+      },
+      {
+        title: 'CFE',
+        note: this.deudas[1] + ' MXN',
+        icon: this.icons[1]
+      },
+      {
+        title: 'Spotify',
+        note: this.deudas[2] + ' MXN',
+        icon: this.icons[2]
+      },
+      {
+        title: 'Tarjeta de crédito',
+        note: this.deudas[3] + ' MXN',
+        icon: this.icons[3]
+      }
+    ];
   }
 
   ngOnInit() {
   }
-  // add back when alpha.4 is out
-  // navigate(item) {
-  //   this.router.navigate(['/list', JSON.stringify(item)]);
-  // }
+
+  move(servicio) {
+    this.router.navigateByUrl('servicio');
+  }
 }

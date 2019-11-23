@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Método de pago
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <img src="/assets/card.jpg" alt="" />
+    <ion-card-header>
+      <ion-card-subtitle>Método principal de pago</ion-card-subtitle>
+      <ion-card-title>Tarjeta de débito</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label color="dark">Uso </ion-label> 
+        <ion-select cancelText="Cancelar" okText="Escoger">
+          <ion-select-option value="principal">Principal</ion-select-option>
+          <ion-select-option value="secundario">Secundario</ion-select-option>
+          <ion-select-option value="complementario">Complementario</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-input placeholder="Número de tarjeta"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input placeholder="Titular de la tarjeta"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="number" placeholder="CVV"></ion-input>
+        <ion-datetime displayFormat="MMMM YY" min="2014-06-04" max="2050-01-01" value="2019-11-22T13:47:20.789"></ion-datetime>
+      </ion-item>
+    </ion-card-content>
+    <ion-row class="cardfooter">
+      <ion-col>
+        <ion-button expand="full" color="warning" [routerDirection]="'root'" [routerLink]="['/home']">Editar
+        </ion-button>
+        <ion-button expand="full" color="danger" [routerDirection]="'root'" [routerLink]="['/home']">Eliminar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+</ion-content>
